@@ -3,16 +3,15 @@
 Promises Workshop: build the pledge.js ES6-style promise library
 ----------------------------------------------------------------*/
 // YOUR CODE HERE:
-
-class $Promise{
+class $Promise {
     constructor(executor) {
         if (!executor || typeof executor !== 'function')
             throw TypeError('/executor.+function/');
         this._state = 'pending';
         this._value;
-        console.log(executor.arguments[0])
-        
-        executor(this._internalResolve, this._internalReject);
+        //        console.log(this)
+        //        executor.call(this, this._internalResolve, this._internalReject)
+        executor(this._internalResolve.bind(this), this._internalReject.bind(this))
     }
 
     _internalResolve(data) {
