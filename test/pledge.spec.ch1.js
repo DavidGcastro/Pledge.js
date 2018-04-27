@@ -237,13 +237,13 @@ describe('Chapter 1: Structure and State', function () {
             executor = jasmine.createSpy();
         });
 
-        xit('gets called when making a new $Promise', function () {
+        it('gets called when making a new $Promise', function () {
             expect(executor).not.toHaveBeenCalled();
             var promise = new $Promise(executor); // eslint-disable-line no-unused-vars
             expect(executor).toHaveBeenCalled();
         });
 
-        xit('gets called with two different functions (funception!), resolve and reject', function () {
+        it('gets called with two different functions (funception!), resolve and reject', function () {
             var promise = new $Promise(executor); // eslint-disable-line no-unused-vars
             var argsPassedIntoExecutor = executor.calls.argsFor(0);
 
@@ -262,7 +262,7 @@ describe('Chapter 1: Structure and State', function () {
             // like "cannot read X of undefined". Think carefully; you may have an
             // issue with *context* (the `this` keyword).
 
-            xit('resolves the promise', function () {
+            it('resolves the promise', function () {
                 var promise = new $Promise(function (resolve) {
                     resolve('WinGARdium leviOHsa.');
                 });
@@ -275,7 +275,7 @@ describe('Chapter 1: Structure and State', function () {
             // After all, you worked so hard to make sure `._internalResolve` and
             // `._internalReject` work properly.
 
-            xit('is indistinguishable in behavior from `._internalResolve`', function () {
+            it('is indistinguishable in behavior from `._internalResolve`', function () {
                 var resolver;
                 var promise = new $Promise(function (resolve) {
                     resolve('Use the promise machinery, Luke.');

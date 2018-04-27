@@ -4,12 +4,15 @@ Promises Workshop: build the pledge.js ES6-style promise library
 ----------------------------------------------------------------*/
 // YOUR CODE HERE:
 
-class $Promise {
-    constructor(func) {
-        if (!func || typeof func !== 'function')
+class $Promise{
+    constructor(executor) {
+        if (!executor || typeof executor !== 'function')
             throw TypeError('/executor.+function/');
         this._state = 'pending';
         this._value;
+        console.log(executor.arguments[0])
+        
+        executor(this._internalResolve, this._internalReject);
     }
 
     _internalResolve(data) {
@@ -41,5 +44,5 @@ So in a Node-based project we could write things like this:
 
 var Promise = require('pledge');
 …
-var promise = new Promise(function (resolve, reject) { … });
+var promise = new Promise(excutortion (resolve, reject) { … });
 --------------------------------------------------------*/
