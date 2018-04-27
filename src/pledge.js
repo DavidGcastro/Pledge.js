@@ -4,9 +4,31 @@ Promises Workshop: build the pledge.js ES6-style promise library
 ----------------------------------------------------------------*/
 // YOUR CODE HERE:
 
+class $Promise {
+    constructor(func) {
+        if (!func || typeof func !== 'function')
+            throw TypeError('/executor.+function/');
+        this._state = 'pending';
+        this._value;
+    }
 
+    _internalResolve(data) {
+        if (this._state === "pending") {
+            this._state = 'fulfilled';
+            this._value = data;
 
+        }
+    }
 
+    _internalReject(errMessage) {
+        if (this._state === "pending") {
+            this._state = "rejected"
+            this._value = errMessage;
+        }
+    }
+
+    // We will look at static and subclassed methods shortly
+}
 
 
 /*-------------------------------------------------------
