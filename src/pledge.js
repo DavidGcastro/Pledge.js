@@ -9,8 +9,7 @@ class $Promise {
             throw TypeError('/executor.+function/');
         this._state = 'pending';
         this._value;
-        //        console.log(this)
-        //        executor.call(this, this._internalResolve, this._internalReject)
+        // executor.call(this, this._internalResolve, this._internalReject)
         executor(this._internalResolve.bind(this), this._internalReject.bind(this))
     }
 

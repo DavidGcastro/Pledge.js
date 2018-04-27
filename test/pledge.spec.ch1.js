@@ -296,7 +296,7 @@ describe('Chapter 1: Structure and State', function () {
 
             // Yet again, resolution and rejection are basically the same.
 
-            xit('rejects the promise', function () {
+            it('rejects the promise', function () {
                 var promise = new $Promise(function (resolve, reject) {
                     reject('Stupefy!');
                 });
@@ -304,7 +304,7 @@ describe('Chapter 1: Structure and State', function () {
                 expect(promise._value).toBe('Stupefy!');
             });
 
-            xit('is indistinguishable in behavior from `._internalReject`', function () {
+            it('is indistinguishable in behavior from `._internalReject`', function () {
                 var rejector;
                 var promise = new $Promise(function (resolve, reject) {
                     reject('You must unlearn what you have learned.');
@@ -323,7 +323,7 @@ describe('Chapter 1: Structure and State', function () {
 
         // This part should pass if you did the above correctly. Follow the logic:
 
-        xit('therefore allows the *creator* of a new promise to control its fate, even asynchronously!', function (done) {
+        it('therefore allows the *creator* of a new promise to control its fate, even asynchronously!', function (done) {
 
             var promise3 = new $Promise(function (resolve) {
                 setTimeout(function runsInTheFuture() {
